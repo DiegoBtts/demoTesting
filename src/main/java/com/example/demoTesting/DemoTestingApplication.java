@@ -1,11 +1,12 @@
 package com.example.demoTesting;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoTestingApplication {
+public class DemoTestingApplication implements CommandLineRunner {
 
 	@Autowired
 	ServicioDeCalculadora servicioDeCalculadora;
@@ -14,4 +15,7 @@ public class DemoTestingApplication {
 		SpringApplication.run(DemoTestingApplication.class, args);
 	}
 
+	@Override
+	public void run(String... args) throws Exception {
+	}
 }
