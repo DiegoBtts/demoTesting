@@ -33,6 +33,16 @@ public class PruebaDeServicioDeCalculadora {
         objetoDePrueba.historial = new LinkedList<String>();
     }
 
+    @After
+    public void despuesDeLasPruebas() {
+        System.out.println("Despues de cada prueba");
+    }
+
+    @AfterClass
+    public static void despuesDeLaClase(){
+        System.out.println("Despues de la clase");
+    }
+
     @Test
     public void pruebaDeSuma() {
         //Dado que tenemos dos enteros
@@ -61,13 +71,19 @@ public class PruebaDeServicioDeCalculadora {
         assertEquals(1,objetoDePrueba.historial.size());
     }
 
-    @After
-    public void despuesDeLasPruebas() {
-        System.out.println("Despues de cada prueba");
+    @Test
+    public void pruebaDeMultiplicacion(){
+        //Dado que tenemos dos flotantes
+        float a = 3.0F;
+        float b = 4.99F;
+
+        //Cuando ejecutamos la suma
+        float resultado = objetoDePrueba.multiplicar(a, b);
+
+        //Verificamos
+        assertEquals(14.97, resultado,0.1);
+        assertEquals(1,objetoDePrueba.historial.size());
     }
 
-    @AfterClass
-    public static void despuesDeLaClase(){
-        System.out.println("Despues de la clase");
-    }
+
 }
