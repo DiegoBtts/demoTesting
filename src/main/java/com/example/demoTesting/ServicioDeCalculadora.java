@@ -23,4 +23,16 @@ public class ServicioDeCalculadora {
         return resultado;
     }
 
+    public double dividir(final double a, final double b) throws Exception {
+        if (b == 0){
+            throw new DivisionEntreCeroException();
+        }
+
+        double resultado = a / b;
+        historial.add(String.format("dividr: %f / %f = %f", a, b, resultado));
+        return resultado;
+    }
+
+    public class DivisionEntreCeroException extends Exception {}
+
 }

@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,8 +82,35 @@ public class PruebaDeServicioDeCalculadora {
         float resultado = objetoDePrueba.multiplicar(a, b);
 
         //Verificamos
-        assertEquals(14.97, resultado,0.1);
+        assertEquals(14.97F, resultado,0.1);
         assertEquals(1,objetoDePrueba.historial.size());
+    }
+
+    @Test
+    public void pruebaDeDivicion() throws Exception{
+        //Dado que tenemos dos flotantes
+        double a = 3.0;
+        double b = 1.0;
+
+        //Cuando ejecutamos la suma
+        double resultado = objetoDePrueba.dividir(a, b);
+
+        //Verificamos
+        assertEquals(3.0, resultado,0.1);
+        assertEquals(1,objetoDePrueba.historial.size());
+    }
+    @Ignore
+    @Test(expected = ServicioDeCalculadora.DivisionEntreCeroException.class)
+    public void pruebaDeDivicionEntreCero() throws Exception{
+        //Dado que tenemos dos flotantes
+        double a = 3.0;
+        double b = 0.0;
+
+        //Cuando ejecutamos la suma
+        double resultado = objetoDePrueba.dividir(a, b);
+
+        //Verificamos
+
     }
 
 
